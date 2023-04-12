@@ -20,22 +20,28 @@ public class StartApp implements CommandLineRunner{
 
     @Override
     public void run(String... args) throws Exception {
-        User user = new User();
-        user.setName("0232");
-        user.setUsername("0444");
-        user.setPassword("11233");
+        // User user = new User();
+        // user.setName("jose");
+        // user.setUsername("zezin");
+        // user.setPassword("123");
         
-        //save é um metodo que veio atraves da interface jparepository
-        repository.save(user);
+        // //save é um metodo que veio atraves da interface jparepository
+        // repository.save(user);
 
         for (User usuario: repository.findAll()) {
             System.out.println(usuario);
         }
 
-        // List<User> users = repository.filtrarPorNome("01");
+        List<User> users = repository.findByNameContaining("jose");
 
-        // for (User usuerio: users) {
-        //     System.out.println(usuerio);
+        for (User usuerio: users) {
+            System.out.println(usuerio);
+        }
+
+        // List<User> users2 = repository.buscarPorSenha("123");
+
+        // for (User uuu: users2) {
+        //     System.out.println(uuu.password);
         // }
     }
     
